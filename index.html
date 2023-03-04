@@ -1,86 +1,294 @@
-<!DOCTYPE HTML>
 
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>CROM: Continuous Reduced-Order Modeling of PDEs Using Implicit Neural Representations</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/noscript.css" />
-		<link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico"/>
-	</head>
-	<body class="is-preload">
-		<!-- Wrapper -->
-			<div id="wrapper">
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<header>
-								<h1>CROM: Continuous Reduced-Order Modeling of PDEs Using Implicit Neural Representations</h1>
-								<p><span class="authorname">Peter Yichen Chen</span>, <span class="institution">Columbia University</span></p>
-								TODO
-							</header>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-							<section class="teaser">
-								<figure>
-									<img src="files/rep.png" />
-									<figcaption>
-										TODO</figcaption>
-								</figure>
-							</section>
+    <title>CROM</title>
 
-							<section class="abstract">
-								<h2>Abstract</h2>
-								<p>
-									TODO
-								</p>
-							</section>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-							<section class="links">
-								<h2>Links</h2>
-								<ul>
-							    	<li><a href="TODO">Paper (PDF)</a></li>
-							    	<li><a href="TODO">Video</a></li>
-									<li><a href="TODO">arXiv</a></li>
-									<li><a href="TODO">Source Code</a></li>
-							    </ul>
-							</section>
+    <!-- <base href="/"> -->
 
-							<!-- <section class="comments">
-								<h2>Comments</h2>
-								<p></p>
-							</section> -->
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <link rel="icon" type="image/png" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
-							<!-- <section class="video">
-								<h2>Video</h2>
-							</section>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="app.css">
 
-							<section class="bib">
-								<h2>Cite as</h2>
-								<pre><code>To come, as soon as the code is published!</code></pre>
-							</section> -->
+    <link rel="stylesheet" href="bootstrap.min.css">
 
-							<!-- <section class="acknowledgements">
-								<h2>Acknowledgements</h2>
-								<p></p>
-							</section> -->
-						</div>
-					</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
 
-				<!-- Footer -->
-					<footer>
-						<div class="inner">
-						<!-- Logo -->
-							<p><a href="https://peterchencyc.com" class="logo">
-								<span class="symbol"><img src="favicon.ico" /></span>
-								Peter Yichen Chen</a>
-							</p>
-							<p class="copyright">Based on the design by <a href="http://odedstein.com/projects/flip-free-parametrization/">Oded Stein</a> and the <a href="https://html5up.net/phantom">Phantom</a> <a href="https://html5up.net">HTML5Up</a> template, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-						</div>
-					</footer>
+    <script src="app.js"></script>
+</head>
 
-			</div>
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-12 text-center">
+                CROM: Continuous Reduced-Order Modeling of PDEs </br> Using Implicit Neural Representation</br>
+                <small>
+                    ICLR 2023 (notable-top-25%)
+                </small>
+            </h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://peterchencyc.com/">
+                          Peter Yichen Chen <sup>1,3</sup>
+                        </a>
 
-	</body>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/jinxu-xiang-0862631a2">
+                          Jinxu Xiang <sup>1</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/david-cho-003285131">
+                          Dong Heon Cho <sup>1</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://changy1506.github.io">
+                          Yue Chang <sup>1</sup>
+                        </a>
+                    </li>
+                    <li>
+                          G A Pershing <sup>1</sup>
+                    </li>
+                    <li>
+                        <a href="https://henriquetmaia.github.io">
+                          Henrique Teles Maia <sup>1</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/maurizio-chiaramonte-03779762">
+                          Maurizio M. Chiaramonte <sup>2</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://kevintcarlberg.net">
+                          Kevin Carlberg <sup>2</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.dgp.toronto.edu/~eitan/">
+                          Eitan Grinspun <sup>4,1</sup>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="list-inline">
+                    <li>
+                      <sup>1</sup> Columbia University 
+                    </li>
+                    <li>
+                      <sup>2</sup> Meta Reality Labs Research
+                    </li>
+                    <li>
+                      <sup>3</sup> MIT CSAIL
+                    </li>
+                    <li>
+                      <sup>4</sup> University of Toronto
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2206.02607">
+                            <image src="paper.png" height="120px"><br>
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                            <image src="youtube_icon_dark.png" height="120px"><br>
+                                <h4><strong>Technical Video [Coming Soon]</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/dc3042/CROM_offline_training">
+                            <image src="github_pad.png" height="120px"><br>
+                                <h4><strong>Code (Part I)</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/peterchencyc/CROM_online_deployment">
+                            <image src="github_pad.png" height="120px"><br>
+                                <h4><strong>Code (Part II)</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <image src="CROM.png" class="img-responsive" alt="overview"><br>
+                <p class="text-justify">
+                    The long runtime of high-fidelity partial differential equation (PDE) solvers makes 
+                    them unsuitable for time-critical applications. We propose to accelerate PDE solvers 
+                    using reduced-order modeling (ROM). Whereas prior ROM approaches reduce the dimensionality 
+                    of discretized vector fields, our continuous reduced-order modeling (CROM) approach builds 
+                    a low-dimensional embedding of the continuous vector fields themselves, not their 
+                    discretization. We represent this reduced manifold using continuously differentiable neural 
+                    fields, which may train on any and all available numerical solutions of the continuous 
+                    system, even when they are obtained using diverse methods or discretizations. We validate 
+                    our approach on an extensive range of PDEs with training data from voxel grids, meshes, 
+                    and point clouds. Compared to prior discretization-dependent ROM methods, such as linear 
+                    subspace proper orthogonal decomposition (POD) and nonlinear manifold neural-network-based 
+                    autoencoders, CROM features higher accuracy, lower memory consumption, dynamically adaptive 
+                    resolutions, and applicability to any discretization. For equal latent space dimension, 
+                    CROM exhibits 79X and 49X better accuracy, and 39X and 132X smaller memory footprint, than 
+                    POD and autoencoder methods, respectively. Experiments demonstrate 109X and 89X wall-clock 
+                    speedups over unreduced models on CPUs and GPUs, respectively. 
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Technical Video
+                </h3>
+                <!-- <div class="text-center"> -->
+                    <!-- <div style="position:relative;padding-top:56.25%;"> -->
+                        <!-- <iframe src="https://www.youtube.com/embed/4XyDdvhhjVo" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="videos/camera-ready.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Example Results: Advection Equation
+                </h3>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="videos/Advect.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Example Results: Burger's Equation
+                </h3>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="videos/Burger.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+
+
+<!--         <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Links
+                </h3>
+            </div>
+        </div> -->
+
+
+
+
+<!--         <div class="row" id="header_img">
+            <figure class="col-md-8 col-md-offset-2">
+                <image src="img/llff_teaser.png" class="img-responsive" alt="overview">
+                <figcaption>
+                </figcaption>
+            </figure>
+
+        </div> -->
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTeX
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly>
+@inproceedings{
+    chen2023crom,
+    title={{CROM}: Continuous Reduced-Order Modeling of {PDE}s Using Implicit Neural Representations},
+    author={Peter Yichen Chen and Jinxu Xiang and Dong Heon Cho and Yue Chang and G A Pershing and Henrique Teles Maia and Maurizio M Chiaramonte and Kevin Thomas Carlberg and Eitan Grinspun},
+    booktitle={The Eleventh International Conference on Learning Representations },
+    year={2023},
+    url={https://openreview.net/forum?id=FUORz1tG8Og}}
+</textarea>
+                <!-- </div>
+    </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                Our implementation is based on <a href="https://github.com/google-research/google-research/tree/master/jaxnerf">Boyang Deng's awesome JAX implementation of NeRF</a>.
+                <br>
+                The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+                </p>
+            </div>
+        </div>
+    </div> -->
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgments
+                </h3>
+                <p class="text-justify">
+                    This work was supported in part by the National Science Foundation (Grant CBET-17-06689), Meta,
+                    Natural Sciences and Engineering Research Council of Canada (Discovery Grant), and SideFX. We
+                    thank Honglin Chen and Rundi Wu for their insightful discussions. We thank Rundi Wu for sharing
+                    his implementation of Stable Fluids. We thank Raymond Yun Fei for rendering advice. We thank
+                    Keenan Crane for the "Origins of the Pig" mesh.
+
+                </p>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                The website template was borrowed from <a href="https://pratulsrinivasan.github.io/nerv/">NeRV</a> and  <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+                </p>
+            </div>
+        </div>
+
+</body>
 </html>
