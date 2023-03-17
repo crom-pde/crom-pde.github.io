@@ -147,22 +147,27 @@
                 </h3>
                 <image src="CROM.png" class="img-responsive" alt="overview"><br>
                 <p class="text-justify">
-                    The long runtime of high-fidelity partial differential equation (PDE) solvers makes 
-                    them unsuitable for time-critical applications. We propose to accelerate PDE solvers 
-                    using reduced-order modeling (ROM). Whereas prior ROM approaches reduce the dimensionality 
-                    of discretized vector fields, our continuous reduced-order modeling (CROM) approach builds 
-                    a low-dimensional embedding of the continuous vector fields themselves, not their 
-                    discretization. We represent this reduced manifold using continuously differentiable neural 
-                    fields, which may train on any and all available numerical solutions of the continuous 
-                    system, even when they are obtained using diverse methods or discretizations. We validate 
-                    our approach on an extensive range of PDEs with training data from voxel grids, meshes, 
-                    and point clouds. Compared to prior discretization-dependent ROM methods, such as linear 
-                    subspace proper orthogonal decomposition (POD) and nonlinear manifold neural-network-based 
-                    autoencoders, CROM features higher accuracy, lower memory consumption, dynamically adaptive 
-                    resolutions, and applicability to any discretization. For equal latent space dimension, 
-                    CROM exhibits 79X and 49X better accuracy, and 39X and 132X smaller memory footprint, than 
-                    POD and autoencoder methods, respectively. Experiments demonstrate 109X and 89X wall-clock 
-                    speedups over unreduced models on CPUs and GPUs, respectively. 
+                    The long runtime of high-fidelity partial differential equation (PDE) solvers 
+                    makes them unsuitable for time-critical applications. We propose to accelerate 
+                    PDE solvers using reduced-order modeling (ROM). Whereas prior ROM approaches 
+                    reduce the dimensionality of discretized vector fields, our continuous 
+                    reduced-order modeling (CROM) approach builds a low-dimensional embedding of 
+                    the continuous vector fields themselves, not their discretization. We represent 
+                    this reduced manifold using continuously differentiable neural fields, which may 
+                    train on any and all available numerical solutions of the continuous system, even 
+                    when they are obtained using diverse methods or discretizations. We validate our 
+                    approach on an extensive range of PDEs with training data from voxel grids, meshes, 
+                    and point clouds. Compared to prior discretization-dependent ROM methods, such as 
+                    linear subspace proper orthogonal decomposition (POD) and nonlinear manifold 
+                    neural-network-based autoencoders, CROM features higher accuracy, lower memory 
+                    consumption, dynamically adaptive resolutions, and applicability to any discretization. 
+                    For equal latent space dimension, CROM exhibits 79X and 49X better accuracy, and 
+                    39X and 132X smaller memory footprint, than POD and autoencoder methods, respectively. 
+                    Experiments demonstrate 109X and 89X wall-clock speedups over unreduced models on CPUs 
+                    and GPUs, respectively. Videos and codes are available on the 
+
+                    <a href="https://crom-pde.github.io">project page</a>.
+
                 </p>
             </div>
         </div>
